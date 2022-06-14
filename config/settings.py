@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
 
-    'apps.account',
+    'apps.user_account',
     'apps.cart',
     'apps.category',
     'apps.order',
@@ -177,5 +177,5 @@ REST_FRAMEWORK = {
 
 
 
-AUTH_USER_MODEL = 'account.CustomUser'
+AUTH_USER_MODEL = 'user_account.CustomUser'
 
