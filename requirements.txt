@@ -9,3 +9,5 @@ PyJWT
 python-decouple
 gunicorn
 django-cors-headers
+whitenoise
+dj-database-url
