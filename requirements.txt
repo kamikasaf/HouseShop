@@ -5,6 +5,7 @@ djangorestframework-simplejwt
 drf-yasg
 Pillow
 psycopg2-binary
+PyJWT
 python-decouple
 gunicorn
 django-cors-headers
