@@ -7,6 +7,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework import status
 from django.http import HttpResponse
 from rest_framework_simplejwt.views import TokenObtainPairView
+from drf_yasg.utils import swagger_auto_schema 
 
 
 
@@ -34,6 +35,7 @@ class LoginAPIView(TokenObtainPairView):
 #         return HttpResponse('goodbye', status=status.HTTP_401_UNAUTHORIZED)
 
 class RegistrationView(APIView):
+    @swagger_auto_schema(request_body=RegistrationSerializer)
     def post(self, request):
         serializer = RegistrationSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
@@ -54,8 +56,7 @@ class ActivationView(APIView):
 
 
 class ForgotPasswordView(APIView):
-
-
+    @swagger_auto_schema(request_body=ForgotSerializer)
     def post(self, request):
         data = request.POST
         serializer = ForgotSerializer(data=request.data)
