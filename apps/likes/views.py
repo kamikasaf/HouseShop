@@ -5,13 +5,13 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 
 from apps.product.models import Product
-from apps.product.serializers import Produclserializers
+from apps.product.serializers import ProductSerializer
 
 from .models import Likes
 
 class LikesVIewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
-    serializer_class = Produclserializers
+    serializer_class = ProductSerializer
 
     @action(detail=True, methods=['GET'])
     def like(self, request, pk):

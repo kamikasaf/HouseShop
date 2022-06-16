@@ -2,7 +2,7 @@ from .models import Product, ProductImage
 from rest_framework import serializers
 from apps.review.serializers import ReviewSerializer
 
-class Produclserializers(serializers.ModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         exclude = ('author',)

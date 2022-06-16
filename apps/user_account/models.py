@@ -3,6 +3,7 @@ from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.core.mail import send_mail
 from apps.user_account.services.signals import post_screate_cart_signal
 from django.db.models.signals import post_save
+from decouple import config
 
 
 class CustomUserManager(BaseUserManager):
@@ -70,7 +71,7 @@ class CustomUser(AbstractBaseUser):
             self.save()
     
     def send_activation_email(self):
-        activation_url = f'http://127.0.0.1:8000/account/activate/{self.activation_code}'
+        activation_url = f"{config('LINK')}/account/activate/{self.activation_code}"
         message = f'''
             You are signed up successfully!
             Activate your account {activation_url}
@@ -78,7 +79,7 @@ class CustomUser(AbstractBaseUser):
         send_mail('Activate your account', message, 'test@mail.com', [self.email, ])
     
     def send_confirm_email(self):
-        activation_url = f'http://127.0.0.1:8000/account/confirm_email/{self.activation_code}'
+        activation_url = f"{config('LINK')}/account/confirm_email/{self.activation_code}"
         message = f"""
             confirm password change: {activation_url}
         """
