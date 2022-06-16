@@ -14,6 +14,8 @@ from drf_yasg.utils import swagger_auto_schema
 # from .services.utils import confirm_email
 from .serializers import *
 
+class LoginView(TokenObtainPairView):
+    serializer_class = LoginSerializer
 
 # class LoginAPIView(TokenObtainPairView):
 #     serializer_class = LoginSerializer
