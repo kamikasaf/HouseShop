@@ -14,7 +14,10 @@ from apps.likes.views import LikesVIewSet
 from apps.product.views import *
 from apps.review.views import *
 # from apps.order.views import OrderViewSet
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 
 router = SimpleRouter()
@@ -44,6 +47,10 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('admin/', admin.site.urls),
     path('account/', include('apps.user_account.urls')),
+    
+   #  path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+   #  path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+   
     path('category/', include('apps.category.urls')),
     path('products/', include('apps.product.urls')),
     path('', include(router.urls)),

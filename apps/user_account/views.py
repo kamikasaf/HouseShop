@@ -15,8 +15,8 @@ from drf_yasg.utils import swagger_auto_schema
 from .serializers import *
 
 
-class LoginAPIView(TokenObtainPairView):
-    serializer_class = LoginSerializer
+# class LoginAPIView(TokenObtainPairView):
+#     serializer_class = LoginSerializer
     # def post(self,request):
     #     data = request.POST
     #     serializer = UserSerializer(data=data)
