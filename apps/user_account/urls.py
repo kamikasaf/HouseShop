@@ -7,7 +7,7 @@ urlpatterns = [
     path('activate/<str:activation_code>/', ActivationView.as_view()),
     # path('login/', LoginAPIView.as_view()),
     # path('logout/', LogoutAPIView.as_view()),
-    path('login/', LoginView.as_view(), name='token_obtain_pair'),
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path("forgot_password/", ForgotPasswordView.as_view()),
     path('confirm_email/<str:activation_code>/', TakeNewPasswordView.as_view()),
