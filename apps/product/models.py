@@ -3,17 +3,23 @@ from django.db import models
 from django.conf import settings
 
 
-from apps.category.models import Category
-
-
 
 class Product(models.Model):
+    CATEGORY_CHOICES = (
+          ("USA", "USA"),
+          ("South Korea", "South Korea"),
+          ("Jamaica", "Jamaica"),
+          ("Mexico", "Mexico"),
+          ("Greece", "Greece"),
+          ("Thailand", "Thailand"),
+          ("Maldives", "Maldives")
+    )
 
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='products')
     title = models.CharField(max_length=100)
     desc = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    category = models.ForeignKey(to=Category, on_delete=models.CASCADE, related_name='products')
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=20)
     # image = models.ImageField(upload_to='products/', blank=True, null=True)
     available = models.BooleanField(default=True)
     create_date = models.DateTimeField(auto_now_add=True)
