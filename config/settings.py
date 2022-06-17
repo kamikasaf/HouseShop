@@ -15,6 +15,7 @@ from decouple import config
 import os
 from datetime import timedelta
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -53,7 +54,6 @@ INSTALLED_APPS = [
 
     'apps.user_account',
     'apps.cart',
-    'apps.category',
     'apps.order',
     'apps.product',
     'apps.review',
@@ -101,15 +101,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config('DB_ENGINE'),
-        # 'NAME': config('DB_NAME'),
-        # 'USER': config('DB_USER'),
-        # 'PASSWORD': config('DB_PASSWORD'),
-        # 'HOST': config('DB_HOST'),
-        # 'PORT': config('DB_PORT',cast=int),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT',cast=int),
     }
 }
-import dj_database_url
-DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
+
+# import dj_database_url
+# DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
 
 
 # Password validation
