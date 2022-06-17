@@ -36,7 +36,7 @@ class ListProductVIew(generics.ListAPIView):
 class CreateProductVIew(generics.CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = (IsAuthenticated)
+    permission_classes = (IsAuthenticated, )
 
 
 
@@ -65,20 +65,20 @@ class UpdateProductVIew(generics.UpdateAPIView):
 class CreateProductImageVIew(generics.CreateAPIView):
     queryset = ProductImage.objects.all()
     serializer_class = ProductImageSerializer
-    permission_classes = (IsAdminUser,)
+    permission_classes = (IsAuthenticated,)
 
 
 
 class DestroyProductImageVIew(generics.DestroyAPIView):
     queryset = ProductImage.objects.all()
     serializer_class = ProductImageSerializer
-    permission_classes = (IsAdminUser, )
+    permission_classes = (IsAdminOrAuthor, )
 
 
 
 class UpdateProductImageVIew(generics.UpdateAPIView):
     queryset = ProductImage.objects.all()
     serializer_class = ProductImageSerializer
-    permission_classes = (IsAdminUser, )
+    permission_classes = (IsAdminOrAuthor, )
 
 
