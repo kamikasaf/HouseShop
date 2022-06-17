@@ -14,7 +14,7 @@ from apps.likes.models import Likes
 from apps.product.pagiantions import ProductPagination
 from .models import Product, ProductImage
 from .permissions import IsAdminOrAuthor
-from .serializers import Produclserializers, ProductImageSerializer
+from .serializers import ProductSerializer, ProductImageSerializer
 
 
 
@@ -22,7 +22,7 @@ from .serializers import Produclserializers, ProductImageSerializer
 
 class ListProductVIew(generics.ListAPIView):
     queryset = Product.objects.all()
-    serializer_class = Produclserializers
+    serializer_class = ProductSerializer
     permission_classes = (AllowAny, )
     pagination_class = ProductPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
@@ -35,25 +35,25 @@ class ListProductVIew(generics.ListAPIView):
 
 class CreateProductVIew(generics.CreateAPIView):
     queryset = Product.objects.all()
-    serializer_class = Produclserializers
+    serializer_class = ProductSerializer
     permission_classes = (IsAdminUser,)
 
 
 
 class DestroyProductVIew(generics.DestroyAPIView):
     queryset = Product.objects.all()
-    serializer_class = Produclserializers
+    serializer_class = ProductSerializer
     permission_classes = (IsAdminUser, )
 
 class RetrieveProductVIew(generics.RetrieveAPIView):
     queryset = Product.objects.all()
-    serializer_class = Produclserializers
+    serializer_class = ProductSerializer
     permission_classes = (AllowAny, )
 
 
 class UpdateProductVIew(generics.UpdateAPIView):
     queryset = Product.objects.all()
-    serializer_class = Produclserializers
+    serializer_class = ProductSerializer
     permission_classes = (IsAdminUser, )
 
 

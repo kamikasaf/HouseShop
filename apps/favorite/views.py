@@ -7,13 +7,13 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 from apps.favorite.serializers import FavoriteSerializer
 from apps.product.models import Product
-from apps.product.serializers import Produclserializers
+from apps.product.serializers import ProductSerializer
 
 from .models import Favorite
 
 class FavoriteVIewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
-    serializer_class = Produclserializers
+    serializer_class = ProductSerializer
 
     @action(detail=True, methods=['GET'])
     def favorite(self, request, pk):
