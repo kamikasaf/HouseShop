@@ -15,7 +15,6 @@ class ProductSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation=super().to_representation(instance)
         representation['author'] = instance.author.name
-        representation["category"] = instance.category.title
         representation["reviews"] = instance.reviews.all().count()
         representation['reviews'] = ReviewSerializer(instance.reviews.all(), many=True).data
         representation['likes']=instance.likes.filter(is_liked=True).count()
