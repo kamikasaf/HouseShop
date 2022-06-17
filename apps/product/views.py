@@ -13,7 +13,7 @@ from rest_framework.decorators import action
 from apps.likes.models import Likes
 from apps.product.pagiantions import ProductPagination
 from .models import Product, ProductImage
-from .permissions import IsAuthorOrAdmin
+from .permissions import IsAdminOrAuthor
 from .serializers import ProductSerializer, ProductImageSerializer
 
 
@@ -43,7 +43,7 @@ class CreateProductVIew(generics.CreateAPIView):
 class DestroyProductVIew(generics.DestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = (IsAuthorOrAdmin, )
+    permission_classes = (IsAdminOrAuthor, )
 
 class RetrieveProductVIew(generics.RetrieveAPIView):
     queryset = Product.objects.all()
@@ -54,7 +54,7 @@ class RetrieveProductVIew(generics.RetrieveAPIView):
 class UpdateProductVIew(generics.UpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = (IsAuthorOrAdmin, )
+    permission_classes = (IsAdminOrAuthor, )
 
 
 
@@ -72,13 +72,13 @@ class CreateProductImageVIew(generics.CreateAPIView):
 class DestroyProductImageVIew(generics.DestroyAPIView):
     queryset = ProductImage.objects.all()
     serializer_class = ProductImageSerializer
-    permission_classes = (IsAuthorOrAdmin, )
+    permission_classes = (IsAdminOrAuthor, )
 
 
 
 class UpdateProductImageVIew(generics.UpdateAPIView):
     queryset = ProductImage.objects.all()
     serializer_class = ProductImageSerializer
-    permission_classes = (IsAuthorOrAdmin, )
+    permission_classes = (IsAdminOrAuthor, )
 
 
