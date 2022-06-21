@@ -107,11 +107,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config('DB_ENGINE'),
+<<<<<<< HEAD
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT',cast=int),
+=======
+>>>>>>> b2fde84f41b896eb7d2e756a18f86002380eb1a3
     }
 }
 
-import dj_database_url
-DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
+# import dj_database_url
+# DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
 
 DATABASES['default'] =  dj_database_url.config(default='postgres://dvlwagmsgwfuvl:2ca0afc0d9d1c781f067d7a5a5a8848e2161fb31c514d4d51e497a9838f3e756@ec2-3-224-8-189.compute-1.amazonaws.com/dem4uf1ssvmus7')
 
@@ -139,7 +147,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 

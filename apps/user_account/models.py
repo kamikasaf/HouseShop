@@ -85,9 +85,6 @@ class CustomUser(AbstractBaseUser):
             confirm password change: {activation_url}
         """
         send_mail('Confirm your account', message, 'test@mail.com', [self.email, ])
-
-    
-
-
+        
 
 post_save.connect(post_screate_cart_signal, CustomUser)
