@@ -41,8 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
     'whitenoise.runserver_nostatic',
+    'django.contrib.sites', 
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     'rest_framework',
     'rest_framework.authtoken',
@@ -61,6 +66,7 @@ INSTALLED_APPS = [
     'apps.favorite',
 
 ]
+SITE_ID=1
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -101,20 +107,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config('DB_ENGINE'),
+<<<<<<< HEAD
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT',cast=int),
+=======
+>>>>>>> b2fde84f41b896eb7d2e756a18f86002380eb1a3
     }
 }
 
 # import dj_database_url
 # DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
 
+DATABASES['default'] =  dj_database_url.config(default='postgres://dvlwagmsgwfuvl:2ca0afc0d9d1c781f067d7a5a5a8848e2161fb31c514d4d51e497a9838f3e756@ec2-3-224-8-189.compute-1.amazonaws.com/dem4uf1ssvmus7')
 
-# Password validation
-# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 AUTH_PASSWORD_VALIDATORS = [
     {
