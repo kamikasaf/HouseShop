@@ -113,7 +113,7 @@ DATABASES = {
 import dj_database_url
 DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
 
-DATABASES['default'] =  dj_database_url.config(default=config('DB_URL'))
+DATABASES['default'] =  dj_database_url.config(default='postgres://dvlwagmsgwfuvl:2ca0afc0d9d1c781f067d7a5a5a8848e2161fb31c514d4d51e497a9838f3e756@ec2-3-224-8-189.compute-1.amazonaws.com/dem4uf1ssvmus7')
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
