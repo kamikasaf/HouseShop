@@ -41,7 +41,7 @@ class RegistrationSerializer(serializers.Serializer):
     password_confirm = serializers.CharField(min_length=6, required=True)
     name = serializers.CharField(required=True)
     last_name=serializers.CharField(required=False)
-
+    username=serializers.CharField(required=False)
 
     def validate_email(self, email):
         if User.objects.filter(email=email).exists():
