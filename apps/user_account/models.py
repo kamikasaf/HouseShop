@@ -71,7 +71,7 @@ class CustomUser(AbstractBaseUser):
             self.save()
     
     def send_activation_email(self):
-        activation_url = f"{config('LINK')}/account/activate/{self.activation_code}"
+        activation_url = f"{config('LINK')}account/activate/{self.activation_code}"
         message = f'''
             You are signed up successfully!
             Activate your account {activation_url}
@@ -79,14 +79,11 @@ class CustomUser(AbstractBaseUser):
         send_mail('Activate your account', message, 'test@mail.com', [self.email, ])
     
     def send_confirm_email(self):
-        activation_url = f"{config('LINK')}/account/confirm_email/{self.activation_code}"
+        activation_url = f"{config('LINK')}account/confirm_email/{self.activation_code}"
         message = f"""
             confirm password change: {activation_url}
         """
         send_mail('Confirm your account', message, 'test@mail.com', [self.email, ])
-
-    
-
-
+        
 
 post_save.connect(post_screate_cart_signal, CustomUser)
