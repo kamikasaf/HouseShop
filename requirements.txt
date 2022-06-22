@@ -11,9 +11,6 @@ gunicorn
 django-cors-headers
 whitenoise
 dj-database-url
-<<<<<<< HEAD
 aiogram
 qrcode
-=======
 django-allauth
->>>>>>> b2fde84f41b896eb7d2e756a18f86002380eb1a3

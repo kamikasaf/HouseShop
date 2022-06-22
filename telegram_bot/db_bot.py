@@ -1,6 +1,6 @@
 import psycopg2
 
-conn = psycopg2.connect(host="localhost", port = 5432, database="houseshop", user="aktan", password="1")
+conn = psycopg2.connect(host="localhost", port = 5432, database="houseshop", user="aigerimbegimbaeva", password="1")
 cur = conn.cursor()
 
 class BD1:
