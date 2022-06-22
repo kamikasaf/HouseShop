@@ -17,10 +17,10 @@ class Product(models.Model):
 
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='products')
     title = models.CharField(max_length=100)
-    description = models.TextField() 
+    description = models.TextField(blank=True, null=True) 
     price = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=20)
-    img = models.ImageField(upload_to='products/')
+    img = models.ImageField(upload_to='products/', blank=True, null=True)
     available = models.BooleanField(default=True)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
