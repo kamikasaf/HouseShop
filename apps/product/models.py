@@ -17,7 +17,7 @@ class Product(models.Model):
 
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='products')
     title = models.CharField(max_length=100)
-    desc = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True) 
     price = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=20)
     img = models.ImageField(upload_to='products/', blank=True, null=True)
